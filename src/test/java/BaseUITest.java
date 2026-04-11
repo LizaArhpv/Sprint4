@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.Before;
 import org.junit.After;
-import Pages.MainPage;
+import pages.MainPage;
 
 public class BaseUITest {
     WebDriver driver;
@@ -15,13 +15,15 @@ public class BaseUITest {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.manage().window().maximize(); // Полноэкранный режим //
         wait = new WebDriverWait(driver, 10);
         driver.get("https://qa-scooter.praktikum-services.ru/");
-        driver.findElement(MainPage.cookButton).click();
+        driver.findElement(MainPage.COOK_BUTTON).click();
     }
 
     @After
     public void tearDown() {
+
         driver.quit();
     }
 }

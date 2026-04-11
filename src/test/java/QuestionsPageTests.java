@@ -2,8 +2,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
-import Pages.MainPage;
-import Steps.QuestionsSteps;
+import pages.MainPage;
 import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.Collection;
@@ -24,23 +23,23 @@ public class QuestionsPageTests extends BaseUITest {
     }
 
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: кнопка вопроса={0}, ожидаемый текст вопроса={1}, реальный текст ответа={2}, ожидаемый текст ответа={3}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {MainPage.questionCost, MainPage.questionCostText, MainPage.answerCost, MainPage.answerCostText},
-                {MainPage.questionMultipleScooters, MainPage.questionMultipleScootersText, MainPage.answerMultipleScooters, MainPage.answerMultipleScootersText},
-                {MainPage.questionRentalPeriod, MainPage.questionRentalPeriodText, MainPage.answerRentalPeriod, MainPage.answerRentalPeriodText},
-                {MainPage.questionOrderToday, MainPage.questionOrderTodayText, MainPage.answerOrderToday, MainPage.answerOrderTodayText},
-                {MainPage.questionOrderChanges, MainPage.questionOrderChangesText, MainPage.answerOrderChanges, MainPage.answerOrderChangesText},
-                {MainPage.questionScooterCharging, MainPage.questionScooterChargingText, MainPage.answerScooterCharging, MainPage.answerScooterChargingText},
-                {MainPage.questionOrderCancellation, MainPage.questionOrderCancellationText, MainPage.answerOrderCancellation, MainPage.answerOrderCancellationText},
-                {MainPage.questionAreaDelivery, MainPage.questionAreaDeliveryText, MainPage.answerAreaDelivery, MainPage.answerAreaDeliveryText}
+                {MainPage.QUESTION_COST, MainPage.QUESTION_COST_TEXT, MainPage.ANSWER_COST, MainPage.ANSWER_COST_TEXT},
+                {MainPage.QUESTION_MULTIPLE_SCOOTERS , MainPage.QUESTION_MULTIPLE_SCOOTERS_TEXT, MainPage.ANSWER_MULTIPLE_SCOOTERS, MainPage.ANSWER_MULTIPLE_SCOOTERS_TEXT},
+                {MainPage.QUESTION_RENTAL_PERIOD, MainPage.QUESTION_RENTAL_PERIOD_TEXT, MainPage.ANSWER_RENTAL_PERIOD, MainPage.ANSWER_RENTAL_PERIOD_TEXT},
+                {MainPage.QUESTION_ORDER_TODAY, MainPage.QUESTION_ORDER_TODAY_TEXT, MainPage.ANSWER_ORDER_TODAY, MainPage.ANSWER_ORDER_TODAY_TEXT},
+                {MainPage.QUESTION_ORDER_CHANGES, MainPage.QUESTION_ORDER_CHANGES_TEXT, MainPage.ANSWER_ORDER_CHANGES, MainPage.ANSWER_ORDER_CHANGES_TEXT},
+                {MainPage.QUESTION_SCOOTER_CHARGING, MainPage.QUESTION_SCOOTER_CHARGING_TEXT, MainPage.ANSWER_SCOOTER_CHARGING, MainPage.ANSWER_SCOOTER_CHARGING_TEXT},
+                {MainPage.QUESTION_ORDER_CANCELLATION, MainPage.QUESTION_ORDER_CANCELLATION_TEXT, MainPage.ANSWER_ORDER_CANCELLATION, MainPage.ANSWER_ORDER_CANCELLATION_TEXT},
+                {MainPage.QUESTION_AREA_DELIVERY, MainPage.QUESTION_AREA_DELIVERY_TEXT, MainPage.ANSWER_AREA_DELIVERY, MainPage.ANSWER_AREA_DELIVERY_TEXT}
         });
     }
 
     @Test
     public void testQuestionAnswer() {
-        QuestionsSteps questionsPage = new QuestionsSteps(driver);
+        MainPage questionsPage = new MainPage(driver);
 
         questionsPage.scrollToQuestions();
 
